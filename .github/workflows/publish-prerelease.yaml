@@ -22,6 +22,6 @@ jobs:
     - name: Pack
       run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output . src/Plumbum
     - name: Publish to Github
-      run: dotnet nuget push Plumbum.${VERSION}.nupkg --source --source https://nuget.pkg.github.com/ltippmann/index.json --api-key ${PRERELEASE_GITHUB_API_KEY}
+      run: dotnet nuget push Plumbum.${VERSION}.nupkg --source https://nuget.pkg.github.com/ltippmann/index.json --api-key ${PRERELEASE_GITHUB_API_KEY}
       env:
         PRERELEASE_GITHUB_API_KEY: ${{ secrets.PRERELEASE_GITHUB_API_KEY }}
