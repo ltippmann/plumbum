@@ -16,9 +16,9 @@ jobs:
     - name: Set VERSION variable from tag
       run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
     - name: Build
-      run: dotnet build --configuration Release /p:Version=${VERSION}
+      run: dotnet build --configuration Release /p:Version=${VERSION} src
     - name: Test
-      run: dotnet test --configuration Release /p:Version=${VERSION} --no-build
+      run: dotnet test --configuration Release /p:Version=${VERSION} --no-build src
     - name: Pack
       run: dotnet pack --configuration Release /p:Version=${VERSION} --no-build --output . src/Plumbum
     - name: Publish to Github
